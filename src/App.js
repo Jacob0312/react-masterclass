@@ -1,13 +1,45 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Father = styled.div`
 	display: flex;
+`;
+
+const Animation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+
+  }
+  50% {
+    transform: rotate(180deg);
+    border-radius: 50px;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    border-radius: 100px;
+
+  }
 `;
 
 const Box = styled.div`
 	background-color: ${(props) => props.bgColor};
 	width: 100px;
 	height: 100px;
+	animation: ${Animation} 0.5s linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	span {
+		font-size: 10px;
+		&:hover {
+			font-size: 40px;
+		}
+		&:active {
+			font-size: 30px;
+			opacity: 30%;
+		}
+	}
 `;
 
 const Circle = styled(Box)`
@@ -15,35 +47,13 @@ const Circle = styled(Box)`
 	background-color: green;
 `;
 
-const Text = styled.span`
-	color: white;
-`;
-
-const Btn = styled.button`
-	color: blue;
-	background-color: ${(props) => props.bgColor};
-`;
-
-const Input = styled.input.attrs({
-	placeholder: "Hello",
-	required: true,
-	minlength: 10,
-})``;
-
-const Send = styled(Input).attrs({ type: "submit" })``;
 function App() {
 	return (
-		<Father as="header">
+		<Father>
 			<Box bgColor="tomato">
-				<Text as="h1">Hi</Text>
+				<span>🖤</span>
 			</Box>
 			<Circle></Circle>
-			<Box bgColor="teal"></Box>
-			<Input></Input>
-			<Send></Send>
-			<Btn as="a" href="/" bgColor="orange">
-				Hello!
-			</Btn>
 		</Father>
 	);
 }
