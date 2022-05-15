@@ -22,6 +22,9 @@ const Animation = keyframes`
   }
 `;
 
+const Emoji = styled.span`
+	font-size: 40px;
+`;
 const Box = styled.div`
 	background-color: ${(props) => props.bgColor};
 	width: 100px;
@@ -30,7 +33,7 @@ const Box = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	span {
+	${Emoji} {
 		font-size: 10px;
 		&:hover {
 			font-size: 40px;
@@ -51,7 +54,7 @@ function App() {
 	return (
 		<Father>
 			<Box bgColor="tomato">
-				<span>🖤</span>
+				<Emoji as="p">🖤</Emoji>
 			</Box>
 			<Circle></Circle>
 		</Father>
