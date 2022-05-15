@@ -18,14 +18,32 @@ const Circle = styled(Box)`
 const Text = styled.span`
 	color: white;
 `;
+
+const Btn = styled.button`
+	color: blue;
+	background-color: ${(props) => props.bgColor};
+`;
+
+const Input = styled.input.attrs({
+	placeholder: "Hello",
+	required: true,
+	minlength: 10,
+})``;
+
+const Send = styled(Input).attrs({ type: "submit" })``;
 function App() {
 	return (
-		<Father>
+		<Father as="header">
 			<Box bgColor="tomato">
-				<Text>Hi</Text>
+				<Text as="h1">Hi</Text>
 			</Box>
 			<Circle></Circle>
 			<Box bgColor="teal"></Box>
+			<Input></Input>
+			<Send></Send>
+			<Btn as="a" href="/" bgColor="orange">
+				Hello!
+			</Btn>
 		</Father>
 	);
 }
